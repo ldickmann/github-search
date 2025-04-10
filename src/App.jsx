@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { IoLogoGithub as GithubIcon } from "react-icons/io";
 import githubImg from "./assets/images/github-img.png";
+import SearchInput from "./components/SearchInput";
 
 const Container = styled.div`
   width: 100vw;
@@ -45,6 +46,7 @@ function App() {
             alt="Imagem do texto da empresa 'GitHub'"
           />
         </Logo>
+        <SearchInput />
       </Box>
     </Container>
   );
