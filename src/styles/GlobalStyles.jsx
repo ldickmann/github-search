@@ -13,6 +13,7 @@ const GlobalStyles = () => (
         font-family: ${theme.fonts.main};
         background-color: ${theme.colors.primary};
         color: ${theme.colors.textPrimary};
+        max-width: 1440px;
       }
     `}
   />

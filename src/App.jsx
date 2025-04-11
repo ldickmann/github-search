@@ -10,6 +10,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div`
@@ -19,7 +20,6 @@ const Wrapper = styled.div`
 const Box = styled.div`
   width: 1156px;
   height: 537px;
-  flex-shrink: 0;
   background: #000;
   padding: 2rem 3rem;
   text-align: center;
@@ -41,6 +41,7 @@ const Ellipse = styled.div`
   );
   z-index: 0;
   pointer-events: none;
+  filter: blur(100px);
 `;
 
 const CamadaBg = styled.img`
