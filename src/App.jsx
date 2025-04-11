@@ -134,6 +134,11 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  /* * Esta função assíncrona gerencia o processo de busca
+   * de dados do perfil de usuário usando a chamada da API getUserProfile.
+   * Ela atualiza o estado do componente para refletir o carregamento e, após a conclusão, salva
+   * os dados do perfil recuperados ou define uma mensagem de erro dependendo do resultado.
+   * */
   const handleSearch = async () => {
     setLoading(true);
     try {

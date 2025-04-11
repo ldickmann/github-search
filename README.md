@@ -1,12 +1,19 @@
-# React + Vite
+# Teste Técnico - AVANTI | innovation class
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Projeto 02- Busca de Perfil no GitHub
 
-Currently, two official plugins are available:
+## Objetivo - Texto retirado diretamente da página da AVANTI innovation class
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- O desafio final consiste em desenvolver uma aplicação React que permite buscar perfis do GitHub e exibir informações do usuário conforme o layout do Figma abaixo.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Javascript
+- Emotion
+- React Icons
+- Vite
+
+## Desenvolvedor
+
+- Lucas Elias Dickmann
