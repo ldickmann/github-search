@@ -1,8 +1,10 @@
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { IoLogoGithub as GithubIcon } from "react-icons/io";
 import githubImg from "./assets/images/github-img.png";
 import camadaBg from "./assets/images/camada-bg-1.png";
 import SearchInput from "./components/SearchInput";
+import { getUserProfile } from "./api/github";
 
 const Container = styled.div`
   width: 100vw;
@@ -76,12 +78,76 @@ const Logo = styled.h1`
   gap: 11px;
 `;
 
+const ContainerAround = styled.div`
+  padding: 2rem;
+  text-align: center;
+`;
+
+const ContainerResult = styled.div`
+  width: 804px;
+  height: 257px;
+  margin: 0 auto;
+  border-radius: 25px;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  gap: 2rem;
+`;
+
+const ProfileImage = styled.img`
+  border-radius: 13.75rem;
+  border: 2px solid #005cff;
+  width: 13.75rem;
+  height: 13.75rem;
+`;
+
+const ContainerProfile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+`;
+
+const TitleProfile = styled.h2`
+  color: #005cff;
+  font-size: 1.25rem;
+  font-weight: 700;
+`;
+
+const TextProfile = styled.p`
+  color: #000;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  text-align: start;
+`;
+
 const StyledGithubIcon = styled(GithubIcon)`
   width: 58px;
   height: 58px;
 `;
 
 function App() {
+  const [username, setUsername] = useState("");
+  const [profile, setProfile] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSearch = async () => {
+    setLoading(true);
+    try {
+      const data = await getUserProfile(username);
+      setProfile(data);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      setProfile(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -94,7 +160,27 @@ function App() {
               alt="Imagem do texto da empresa 'GitHub'"
             />
           </Logo>
-          <SearchInput />
+          <SearchInput
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            onSearch={handleSearch}
+          />
+          <ContainerAround>
+            {error && <p>{error}</p>}
+            {loading && <p>Carregando...</p>}
+            {profile && (
+              <ContainerResult>
+                <ProfileImage
+                  src={profile.avatar_url}
+                  alt={profile.login}
+                />
+                <ContainerProfile>
+                  <TitleProfile>{profile.login}</TitleProfile>
+                  <TextProfile>{profile.bio}</TextProfile>
+                </ContainerProfile>
+              </ContainerResult>
+            )}
+          </ContainerAround>
         </Box>
         <EllipseSmaller />
         <Ellipse />

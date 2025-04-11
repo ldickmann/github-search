@@ -56,6 +56,7 @@ const SearchButton = styled.button`
 const SearchInput = ({
   value,
   onChange,
+  onSearch,
   placeholder = "Digite um usuário do Github",
 }) => {
   return (
@@ -67,7 +68,7 @@ const SearchInput = ({
           onChange={onChange}
           placeholder={placeholder}
         />
-        <SearchButton>
+        <SearchButton onClick={onSearch}>
           <FiSearch />
         </SearchButton>
       </InputWrapper>
