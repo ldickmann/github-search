@@ -1,26 +1,55 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { FiSearch } from "react-icons/fi";
 
 const Container = styled.div`
+  max-width: 503px;
   width: 100%;
-  max-width: 600px;
   margin: 1rem auto;
   padding: 0 1rem;
 `;
 
-const Input = styled.input`
-  width: 503px;
+const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
   height: 62px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  background-color: #fff;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  height: 100%;
   padding: 18px 16px;
   border: none;
-  border-radius: 10px;
-  background-color: #fff;
-  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 1rem;
   outline: none;
 
-  &:focus {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.primary};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.textSecondary};
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+`;
+
+const SearchButton = styled.button`
+  width: 62px;
+  height: 100%;
+  background: #005cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  svg {
+    color: #fff;
+    width: 24px;
+    height: 24px;
   }
 `;
 
@@ -31,12 +60,17 @@ const SearchInput = ({
 }) => {
   return (
     <Container>
-      <Input
-        type="text"
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
+      <InputWrapper>
+        <Input
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+        <SearchButton>
+          <FiSearch />
+        </SearchButton>
+      </InputWrapper>
     </Container>
   );
 };

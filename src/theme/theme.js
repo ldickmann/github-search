@@ -3,6 +3,7 @@ export const theme = {
     primary: "#1F1F1F",
     secondary: "#000",
     textPrimary: "#fff",
+    textSecondary: "#333",
     // ...outras cores
   },
   fonts: {
