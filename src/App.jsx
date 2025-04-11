@@ -29,8 +29,8 @@ const Box = styled.div`
 
 const Ellipse = styled.div`
   position: absolute;
-  top: -405px;
-  right: -396px;
+  bottom: 54px;
+  left: 664px;
   width: 888px;
   height: 888px;
   border-radius: 50%;
@@ -40,6 +40,23 @@ const Ellipse = styled.div`
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 0;
+  pointer-events: none;
+  filter: blur(100px);
+`;
+
+const EllipseSmaller = styled.div`
+  position: absolute;
+  top: 61px;
+  right: 1039px;
+  width: 674px;
+  height: 674px;
+  border-radius: 50%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #005cff 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: -1;
   pointer-events: none;
   filter: blur(100px);
 `;
@@ -79,6 +96,7 @@ function App() {
           </Logo>
           <SearchInput />
         </Box>
+        <EllipseSmaller />
         <Ellipse />
         <CamadaBg
           src={camadaBg}
