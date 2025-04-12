@@ -81,6 +81,9 @@ const Logo = styled.h1`
 const ContainerAround = styled.div`
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ContainerResult = styled.div`
@@ -121,6 +124,24 @@ const TextProfile = styled.p`
   font-size: 0.9375rem;
   font-weight: 300;
   text-align: start;
+`;
+
+const ContainerError = styled.div`
+  width: 710px;
+  height: 88px;
+  border-radius: 10px;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TextError = styled.p`
+  color: #f00;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  white-space: pre-wrap;
 `;
 
 const StyledGithubIcon = styled(GithubIcon)`
@@ -171,7 +192,11 @@ function App() {
             onSearch={handleSearch}
           />
           <ContainerAround>
-            {error && <p>{error}</p>}
+            {error && (
+              <ContainerError>
+                <TextError>{error}</TextError>
+              </ContainerError>
+            )}
             {loading && <p>Carregando...</p>}
             {profile && (
               <ContainerResult>
